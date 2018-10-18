@@ -8,6 +8,7 @@ GEM
     hamster (3.0.0)
       concurrent-ruby (~> 1.0)
     link_header (0.0.8)
+    rake (12.3.1)
     rdf (3.0.5)
       hamster (~> 3.0)
       link_header (~> 0.0, >= 0.0.8)
@@ -29,6 +30,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  rake (~> 12.3)
   rdf (~> 3.0)
   rdf-reasoner (~> 0.5.1)
   rdf-turtle (~> 3.0)
