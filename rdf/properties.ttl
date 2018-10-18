@@ -1,0 +1,59 @@
+@base         <https://rdf.sampoapp.org/> .
+@prefix :     <https://rdf.sampoapp.org/> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+:altitude a rdfs:Property ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Altitude"@en ;
+  rdfs:comment "Meters above mean sea level (MAMSL)."@en ;
+  rdfs:domain :Place ;
+  rdfs:range rdfs:Literal .
+
+:currency a rdfs:Property ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Currency"@en ;
+  rdfs:comment "A currency symbol."@en ;
+  rdfs:domain :Payment ;
+  rdfs:range rdfs:Literal .
+
+:id a rdfs:Property ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "ID"@en ;
+  rdfs:comment "A local numeric identifier for a resource.."@en ;
+  rdfs:domain :Entity ;
+  rdfs:range rdfs:Literal .
+
+:latitude a rdfs:Property ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Latitude"@en ;
+  rdfs:comment "Angle (0° to 90°)."@en ;
+  rdfs:domain :Place ;
+  rdfs:range rdfs:Literal .
+
+:longitude a rdfs:Property ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Longitude"@en ;
+  rdfs:comment "Angle (-180° to 180°)."@en ;
+  rdfs:domain :Place ;
+  rdfs:range rdfs:Literal .
+
+:title a rdfs:Property ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Title"@en ;
+  rdfs:comment "The title of a resource."@en ;
+  rdfs:subPropertyOf rdfs:label ;
+  rdfs:domain :Entity ;
+  rdfs:range rdfs:Literal .
+
+:uuid a rdfs:Property ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "UUID"@en ;
+  rdfs:comment "The global unique identifier for a resource."@en ;
+  rdfs:domain :Entity ;
+  rdfs:range rdfs:Literal .
