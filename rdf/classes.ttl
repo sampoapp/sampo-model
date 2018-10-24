@@ -38,6 +38,12 @@
   rdfs:comment ""@en ;
   rdfs:subClassOf :Entity .
 
+:Person a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Person"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Entity, foaf:Person .
+
 :Place a rdfs:Class ;
   rdfs:isDefinedBy <> ;
   rdfs:label "Place"@en ;
