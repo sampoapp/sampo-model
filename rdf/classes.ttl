@@ -8,11 +8,17 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
+################################################################################
+# Base classes
+
 :Entity a rdfs:Class ;
   rdfs:isDefinedBy <> ;
   rdfs:label "Entity"@en ;
   rdfs:comment ""@en ;
   rdfs:subClassOf owl:Thing, rdfs:Resource .
+
+################################################################################
+# Top-level classes
 
 :Birthday a rdfs:Class ;
   rdfs:isDefinedBy <> ;
@@ -67,3 +73,174 @@
   rdfs:label "Quote"@en ;
   rdfs:comment ""@en ;
   rdfs:subClassOf :Entity .
+
+################################################################################
+# Bookmark subclasses
+
+:AmazonProduct a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Amazon product page"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Bookmark .
+
+:ArtoNote a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Arto's notes"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Bookmark .
+
+:ArXivArticle a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "arXiv article"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Bookmark .
+
+:BitbucketRepository a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Bitbucket repository"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Bookmark .
+
+:CourseraCourse a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Coursera course description"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Bookmark .
+
+:DartPackage a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Dart/Flutter package"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Bookmark .
+
+:FacebookPage a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Facebook page"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Bookmark .
+
+:GitHubAccount a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "GitHub account"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Bookmark .
+
+:GitHubRepository a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "GitHub repository"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Bookmark .
+
+:GoogleDocument a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Google Docs/Sheets/Slides document"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Bookmark .
+
+:GoogleGroup a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Google Group forum"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Bookmark .
+
+:GooglePlayApp a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Google Play app"@en ;
+  rdfs:comment "Android app in Google Play store."@en ;
+  rdfs:subClassOf :Bookmark .
+
+:GoogleSearch a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Google search result"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Bookmark .
+
+:MeetupGroup a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Meetup group"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Bookmark .
+
+:HexPackage a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Hex package"@en ;
+  rdfs:comment "Elixir package hosted on Hex.pm."@en ;
+  rdfs:subClassOf :Bookmark .
+
+:PythonPackage a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "PyPI package"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Bookmark .
+
+:RedditThread a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Reddit thread"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Bookmark .
+
+:RFCDocument a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "IETF RFC memorandum"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Bookmark .
+
+:RubyGem a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "RubyGems gem"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Bookmark .
+
+:TwitterTweet a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Twitter tweet"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Bookmark .
+
+:Website a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Website"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Bookmark .
+
+:WikipediaArticle a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Wikipedia article"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Bookmark .
+
+:WikipediaCategory a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Wikipedia category"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Bookmark .
+
+:WikiquotePage a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Wikiquote page"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Bookmark .
+
+:WiktionaryEntry a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Wiktionary entry"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Bookmark .
+
+:YouTubeChannel a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "YouTube channel"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Bookmark .
+
+:YouTubePlaylist a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "YouTube playlist"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Bookmark .
+
+:YouTubeVideo a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "YouTube video"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Bookmark .
