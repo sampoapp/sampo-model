@@ -20,6 +20,12 @@
   rdfs:comment ""@en ;
   rdfs:subClassOf :Entity .
 
+:Bookmark a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Bookmark"@en ;
+  rdfs:comment "A record of the address of a web page serving as a shortcut to it."@en ;
+  rdfs:subClassOf :Entity .
+
 :Note a rdfs:Class ;
   rdfs:isDefinedBy <> ;
   rdfs:label "Note"@en ;
