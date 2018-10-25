@@ -24,63 +24,91 @@
   rdfs:isDefinedBy <> ;
   rdfs:label "Bookmark"@en ;
   rdfs:comment "A record of the address of a web page serving as a shortcut to it."@en ;
-  rdfs:subClassOf :Entity .
+  rdfs:subClassOf :Entity ;
   :id "bookmark" .
+
+:Contract a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Contract"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Entity ;
+  :id "contract" .
+
+:Document a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Document"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Entity ;
+  :id "document" .
 
 :Event a rdfs:Class ;
   rdfs:isDefinedBy <> ;
   rdfs:label "Event"@en ;
   rdfs:comment ""@en ;
-  rdfs:subClassOf :Entity .
+  rdfs:subClassOf :Entity ;
   :id "event" .
+
+:Network a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Network"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Entity ;
+  :id "network" .
 
 :Note a rdfs:Class ;
   rdfs:isDefinedBy <> ;
   rdfs:label "Note"@en ;
   rdfs:comment ""@en ;
-  rdfs:subClassOf :Entity .
+  rdfs:subClassOf :Entity ;
   :id "note" .
 
 :Paper a rdfs:Class ;
   rdfs:isDefinedBy <> ;
   rdfs:label "Paper"@en ;
   rdfs:comment ""@en ;
-  rdfs:subClassOf :Entity .
+  rdfs:subClassOf :Entity ;
   :id "paper" .
 
 :Payment a rdfs:Class ;
   rdfs:isDefinedBy <> ;
   rdfs:label "Payment"@en ;
   rdfs:comment ""@en ;
-  rdfs:subClassOf :Entity .
+  rdfs:subClassOf :Entity ;
   :id "payment" .
 
 :Person a rdfs:Class ;
   rdfs:isDefinedBy <> ;
   rdfs:label "Person"@en ;
   rdfs:comment ""@en ;
-  rdfs:subClassOf :Entity, foaf:Person .
+  rdfs:subClassOf :Entity, foaf:Person ;
   :id "person" .
 
 :Place a rdfs:Class ;
   rdfs:isDefinedBy <> ;
   rdfs:label "Place"@en ;
   rdfs:comment ""@en ;
-  rdfs:subClassOf :Entity .
+  rdfs:subClassOf :Entity ;
   :id "place" .
 
 :Project a rdfs:Class ;
   rdfs:isDefinedBy <> ;
   rdfs:label "Project"@en ;
   rdfs:comment ""@en ;
-  rdfs:subClassOf :Entity, doap:Project, foaf:Project .
+  rdfs:subClassOf :Entity, doap:Project, foaf:Project ;
   :id "project" .
+
+:Task a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Task"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Entity ;
+  :id "task" .
 
 :Quote a rdfs:Class ;
   rdfs:isDefinedBy <> ;
   rdfs:label "Quote"@en ;
   rdfs:comment ""@en ;
-  rdfs:subClassOf :Entity .
+  rdfs:subClassOf :Entity ;
   :id "quote" .
 
 ################################################################################
@@ -283,13 +311,23 @@
   :id "youtube_video" .
 
 ################################################################################
+# Document subclasses
+
+:Email a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Email"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Document ;
+  :id "email" .
+
+################################################################################
 # Event subclasses
 
 :Birthday a rdfs:Class ;
   rdfs:isDefinedBy <> ;
   rdfs:label "Birthday"@en ;
   rdfs:comment ""@en ;
-  rdfs:subClassOf :Event .
+  rdfs:subClassOf :Event ;
   :id "birthday" .
 
 ################################################################################
