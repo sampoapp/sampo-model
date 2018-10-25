@@ -20,19 +20,19 @@
 ################################################################################
 # Top-level classes
 
-:Birthday a rdfs:Class ;
-  rdfs:isDefinedBy <> ;
-  rdfs:label "Birthday"@en ;
-  rdfs:comment ""@en ;
-  rdfs:subClassOf :Entity .
-  :id "birthday" .
-
 :Bookmark a rdfs:Class ;
   rdfs:isDefinedBy <> ;
   rdfs:label "Bookmark"@en ;
   rdfs:comment "A record of the address of a web page serving as a shortcut to it."@en ;
   rdfs:subClassOf :Entity .
   :id "bookmark" .
+
+:Event a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Event"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Entity .
+  :id "event" .
 
 :Note a rdfs:Class ;
   rdfs:isDefinedBy <> ;
@@ -95,7 +95,7 @@
 
 :ArtoNote a rdfs:Class ;
   rdfs:isDefinedBy <> ;
-  rdfs:label "Arto's notes"@en ;
+  rdfs:label "Arto's note"@en ;
   rdfs:comment ""@en ;
   rdfs:subClassOf :Bookmark ;
   :id "arto_note" .
@@ -158,7 +158,7 @@
 
 :GoogleGroup a rdfs:Class ;
   rdfs:isDefinedBy <> ;
-  rdfs:label "Google Group forum"@en ;
+  rdfs:label "Google Groups forum"@en ;
   rdfs:comment ""@en ;
   rdfs:subClassOf :Bookmark ;
   :id "google_group" .
@@ -281,3 +281,33 @@
   rdfs:comment ""@en ;
   rdfs:subClassOf :Bookmark ;
   :id "youtube_video" .
+
+################################################################################
+# Event subclasses
+
+:Birthday a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Birthday"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Event .
+  :id "birthday" .
+
+################################################################################
+# Person subclasses
+
+:Man a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Man"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Person ;
+  :id "man" .
+
+:Woman a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Woman"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Person ;
+  :id "woman" .
+
+################################################################################
+# Place subclasses
