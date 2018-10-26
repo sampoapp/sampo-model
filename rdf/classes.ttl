@@ -254,6 +254,13 @@
   rdfs:subClassOf :Bookmark ;
   :id "twitter_tweet" .
 
+:VimeoVideo a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Vimeo video"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Bookmark ;
+  :id "vimeo_video" .
+
 :Website a rdfs:Class ;
   rdfs:isDefinedBy <> ;
   rdfs:label "Website"@en ;
@@ -330,6 +337,34 @@
   rdfs:subClassOf :Event ;
   :id "birthday" .
 
+:Holiday a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Holiday"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Event ;
+  :id "holiday" .
+
+:Meeting a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Meeting"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Event ;
+  :id "meeting" .
+
+:Meetup a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Meetup"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Event ;
+  :id "meetup" .
+
+:Party a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Party"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Event ;
+  :id "party" .
+
 ################################################################################
 # Person subclasses
 
@@ -349,3 +384,31 @@
 
 ################################################################################
 # Place subclasses
+
+:Building a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Building"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Place ;
+  :id "building" .
+
+:Monument a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Monument"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Place ;
+  :id "monument" .
+
+:Restaurant a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Restaurant"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Place ;
+  :id "restaurant" .
+
+:Venue a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Venue"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Place ;
+  :id "venue" .
