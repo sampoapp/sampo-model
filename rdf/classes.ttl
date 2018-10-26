@@ -205,19 +205,26 @@
   rdfs:subClassOf :Bookmark ;
   :id "google_search" .
 
-:MeetupGroup a rdfs:Class ;
-  rdfs:isDefinedBy <> ;
-  rdfs:label "Meetup group"@en ;
-  rdfs:comment ""@en ;
-  rdfs:subClassOf :Bookmark ;
-  :id "meetup_group" .
-
 :HexPackage a rdfs:Class ;
   rdfs:isDefinedBy <> ;
   rdfs:label "Hex package"@en ;
   rdfs:comment "Elixir package hosted on Hex.pm."@en ;
   rdfs:subClassOf :Bookmark ;
   :id "hex_package" .
+
+:IETFRFC a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "IETF RFC memorandum"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Bookmark ;
+  :id "ietf_rfc" .
+
+:MeetupGroup a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Meetup group"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Bookmark ;
+  :id "meetup_group" .
 
 :PythonPackage a rdfs:Class ;
   rdfs:isDefinedBy <> ;
@@ -232,13 +239,6 @@
   rdfs:comment ""@en ;
   rdfs:subClassOf :Bookmark ;
   :id "reddit_thread" .
-
-:RFCDocument a rdfs:Class ;
-  rdfs:isDefinedBy <> ;
-  rdfs:label "IETF RFC memorandum"@en ;
-  rdfs:comment ""@en ;
-  rdfs:subClassOf :Bookmark ;
-  :id "rfc_document" .
 
 :RubyGem a rdfs:Class ;
   rdfs:isDefinedBy <> ;
