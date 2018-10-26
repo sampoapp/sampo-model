@@ -27,6 +27,13 @@
   rdfs:subClassOf :Entity ;
   :id "bookmark" .
 
+:Bounty a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Bounty"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Entity ;
+  :id "bounty" .
+
 :Contract a rdfs:Class ;
   rdfs:isDefinedBy <> ;
   rdfs:label "Contract"@en ;
