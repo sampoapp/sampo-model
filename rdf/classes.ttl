@@ -20,6 +20,13 @@
 ################################################################################
 # Top-level classes
 
+:Account a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Account"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Entity ;
+  :id "account" .
+
 :Bookmark a rdfs:Class ;
   rdfs:isDefinedBy <> ;
   rdfs:label "Bookmark"@en ;
@@ -117,6 +124,16 @@
   rdfs:comment ""@en ;
   rdfs:subClassOf :Entity ;
   :id "quote" .
+
+################################################################################
+# Account subclasses
+
+:BankAccount a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Bank account"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Account ;
+  :id "bank_account" .
 
 ################################################################################
 # Bookmark subclasses
