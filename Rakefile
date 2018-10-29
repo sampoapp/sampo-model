@@ -40,6 +40,22 @@ def rdf_classes
   result.sort.map(&:to_sym)
 end
 
+def rdf_subclasses
+  require 'rdf'
+  sampo = RDF::Vocabulary.new(BASE_URI)
+  query = RDF::Query.new({
+    :class => {
+      RDF::RDFS.isDefinedBy => RDF::URI(BASE_URI),
+      RDF::RDFS.subClassOf => :superclass,
+    },
+    :superclass => {
+      RDF::RDFS.subClassOf => sampo.Entity,
+    },
+  })
+  result = query.execute(rdf).map { |row| row[:class].relativize(BASE_URI).to_s }
+  result.sort.map(&:to_sym)
+end
+
 def rdf_properties
   require 'rdf'
   query = RDF::Query.new({
@@ -72,9 +88,16 @@ task 'list:prefixes' do
   end
 end
 
-desc "List all classes in the ontology."
+desc "List all superclasses in the ontology."
 task 'list:classes' do
   rdf_classes.each do |row|
+    puts row
+  end
+end
+
+desc "List all subclasses in the ontology."
+task 'list:subclasses' do
+  rdf_subclasses.each do |row|
     puts row
   end
 end
