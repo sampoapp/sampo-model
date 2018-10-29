@@ -36,15 +36,6 @@
   :id "bookmark" ;
   :icon "bookmark" .
 
-# TODO
-:Bounty a rdfs:Class ;
-  rdfs:isDefinedBy <> ;
-  rdfs:label "Bounty"@en ;
-  rdfs:comment ""@en ;
-  rdfs:subClassOf :Entity ;
-  :id "bounty" ;
-  :icon "" .
-
 :Contract a rdfs:Class ;
   rdfs:isDefinedBy <> ;
   rdfs:label "Contract"@en ;
@@ -53,14 +44,13 @@
   :id "contract" ;
   :icon "gavel" .
 
-# TODO
 :Document a rdfs:Class ;
   rdfs:isDefinedBy <> ;
   rdfs:label "Document"@en ;
   rdfs:comment ""@en ;
   rdfs:subClassOf :Entity ;
   :id "document" ;
-  :icon "" .
+  :icon "attachment" .
 
 :Event a rdfs:Class ;
   rdfs:isDefinedBy <> ;
@@ -70,14 +60,13 @@
   :id "event" ;
   :icon "event" .
 
-# TODO
 :Network a rdfs:Class ;
   rdfs:isDefinedBy <> ;
   rdfs:label "Network"@en ;
   rdfs:comment ""@en ;
   rdfs:subClassOf :Entity ;
   :id "network" ;
-  :icon "" .
+  :icon "wifi" .
 
 :Note a rdfs:Class ;
   rdfs:isDefinedBy <> ;
@@ -127,23 +116,13 @@
   :id "project" ;
   :icon "date_range" .
 
-# TODO
-:Promise a rdfs:Class ;
-  rdfs:isDefinedBy <> ;
-  rdfs:label "Promise"@en ;
-  rdfs:comment ""@en ;
-  rdfs:subClassOf :Entity ;
-  :id "contract" ;
-  :icon "" .
-
-# TODO
 :Task a rdfs:Class ;
   rdfs:isDefinedBy <> ;
   rdfs:label "Task"@en ;
   rdfs:comment ""@en ;
   rdfs:subClassOf :Entity ;
   :id "task" ;
-  :icon "" .
+  :icon "assignment" .
 
 :Quote a rdfs:Class ;
   rdfs:isDefinedBy <> ;
@@ -418,6 +397,25 @@
   :id "party" .
 
 ################################################################################
+# Network subclasses
+
+:WiredNetwork a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Wired network"@en ;
+  rdfs:comment "Ethernet"@en ;
+  rdfs:subClassOf :Network ;
+  :id "wired_network" ;
+  :icon "settings_ethernet" .
+
+:WirelessNetwork a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Wireless network"@en ;
+  rdfs:comment "Wi-Fi"@en ;
+  rdfs:subClassOf :Network ;
+  :id "wireless_network" ;
+  :icon "wifi" .
+
+################################################################################
 # Person subclasses
 
 :Man a rdfs:Class ;
@@ -475,6 +473,14 @@
   rdfs:subClassOf :Task ;
   :id "assignment" .
 
+:Bounty a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Bounty"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Task ;
+  :id "bounty" ;
+  :icon "monetization_on" .
+
 :Chore a rdfs:Class ;
   rdfs:isDefinedBy <> ;
   rdfs:label "Chore"@en ;
@@ -488,3 +494,19 @@
   rdfs:comment ""@en ;
   rdfs:subClassOf :Task ;
   :id "errand" .
+
+:Promise a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Promise"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Task ;
+  :id "promise" ;
+  :icon "assignment_late" .
+
+:Purchase a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Purchase"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Task ;
+  :id "purchase" ;
+  :icon "money" .

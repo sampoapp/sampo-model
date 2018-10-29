@@ -166,7 +166,7 @@ task 'gen:classes:all' do
 end
 
 desc "Generate the SQLite schema."
-task 'gen:schema' do
+task 'gen:sqlite' do
   require 'rdf'
   RDF::Query.execute(rdf, {
     :class => {
@@ -192,7 +192,7 @@ task 'gen:schema' do
     puts
     puts %Q<DROP TABLE IF EXISTS #{top_table};>
     puts %Q<CREATE TABLE #{top_table} (>
-    puts %Q<  id INTEGER PRIMARY KEY NOT NULL,>
+    puts %Q<  id INTEGER PRIMARY KEY NOT NULL>
     # TODO
     puts %Q<);>
 
