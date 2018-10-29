@@ -111,6 +111,13 @@
   rdfs:subClassOf :Entity, doap:Project, foaf:Project ;
   :id "project" .
 
+:Promise a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Promise"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Entity ;
+  :id "contract" .
+
 :Task a rdfs:Class ;
   rdfs:isDefinedBy <> ;
   rdfs:label "Task"@en ;
@@ -436,3 +443,27 @@
   rdfs:comment ""@en ;
   rdfs:subClassOf :Place ;
   :id "venue" .
+
+################################################################################
+# Task subclasses
+
+:Assignment a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Assignment"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Task ;
+  :id "assignment" .
+
+:Chore a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Chore"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Task ;
+  :id "chore" .
+
+:Errand a rdfs:Class ;
+  rdfs:isDefinedBy <> ;
+  rdfs:label "Errand"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf :Task ;
+  :id "errand" .
