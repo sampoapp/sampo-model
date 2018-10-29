@@ -167,5 +167,42 @@ end
 
 desc "Generate the SQLite schema."
 task 'gen:schema' do
-  # TODO
+  require 'rdf'
+  RDF::Query.execute(rdf, {
+    :class => {
+      RDF::RDFS.isDefinedBy => RDF::URI(BASE_URI),
+      RDF::RDFS.subClassOf => sampo.Entity,
+      sampo.id => :id,
+      sampo.icon => :icon,
+    },
+  })
+  .reject { |row| row.icon.to_s.empty? } # skip classes w/o icons
+  .sort { |row1, row2| row1.id <=> row2.id }.each do |row|
+    subclasses = RDF::Query.execute(rdf, {
+      :class => {
+        RDF::RDFS.isDefinedBy => RDF::URI(BASE_URI),
+        RDF::RDFS.subClassOf => row[:class],
+        sampo.id => :id,
+      },
+    }).map { |row| row.id.to_s }.sort
+
+    top_table = "data_#{row.id}"
+    puts
+    puts "-"*80
+    puts
+    puts %Q<DROP TABLE IF EXISTS #{top_table};>
+    puts %Q<CREATE TABLE #{top_table} (>
+    puts %Q<  id INTEGER PRIMARY KEY NOT NULL,>
+    # TODO
+    puts %Q<);>
+
+    unless subclasses.empty?
+      subclasses.each do |subclass|
+        sub_table = "#{top_table}_#{subclass}"
+        puts
+        puts %Q<DROP TABLE IF EXISTS #{sub_table};>
+        puts %Q<CREATE TABLE #{sub_table} (id INTEGER PRIMARY KEY NOT NULL);>
+      end
+    end
+  end
 end
