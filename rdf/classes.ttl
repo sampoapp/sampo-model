@@ -25,112 +25,133 @@
   rdfs:label "Account"@en ;
   rdfs:comment ""@en ;
   rdfs:subClassOf :Entity ;
-  :id "account" .
+  :id "account" ;
+  :icon "account_circle" .
 
 :Bookmark a rdfs:Class ;
   rdfs:isDefinedBy <> ;
   rdfs:label "Bookmark"@en ;
   rdfs:comment "A record of the address of a web page serving as a shortcut to it."@en ;
   rdfs:subClassOf :Entity ;
-  :id "bookmark" .
+  :id "bookmark" ;
+  :icon "bookmark" .
 
+# TODO
 :Bounty a rdfs:Class ;
   rdfs:isDefinedBy <> ;
   rdfs:label "Bounty"@en ;
   rdfs:comment ""@en ;
   rdfs:subClassOf :Entity ;
-  :id "bounty" .
+  :id "bounty" ;
+  :icon "" .
 
 :Contract a rdfs:Class ;
   rdfs:isDefinedBy <> ;
   rdfs:label "Contract"@en ;
   rdfs:comment ""@en ;
   rdfs:subClassOf :Entity ;
-  :id "contract" .
+  :id "contract" ;
+  :icon "gavel" .
 
+# TODO
 :Document a rdfs:Class ;
   rdfs:isDefinedBy <> ;
   rdfs:label "Document"@en ;
   rdfs:comment ""@en ;
   rdfs:subClassOf :Entity ;
-  :id "document" .
+  :id "document" ;
+  :icon "" .
 
 :Event a rdfs:Class ;
   rdfs:isDefinedBy <> ;
   rdfs:label "Event"@en ;
   rdfs:comment ""@en ;
   rdfs:subClassOf :Entity ;
-  :id "event" .
+  :id "event" ;
+  :icon "event" .
 
+# TODO
 :Network a rdfs:Class ;
   rdfs:isDefinedBy <> ;
   rdfs:label "Network"@en ;
   rdfs:comment ""@en ;
   rdfs:subClassOf :Entity ;
-  :id "network" .
+  :id "network" ;
+  :icon "" .
 
 :Note a rdfs:Class ;
   rdfs:isDefinedBy <> ;
   rdfs:label "Note"@en ;
   rdfs:comment ""@en ;
   rdfs:subClassOf :Entity ;
-  :id "note" .
+  :id "note" ;
+  :icon "note" .
 
 :Paper a rdfs:Class ;
   rdfs:isDefinedBy <> ;
   rdfs:label "Paper"@en ;
   rdfs:comment ""@en ;
   rdfs:subClassOf :Entity ;
-  :id "paper" .
+  :id "paper" ;
+  :icon "description" .
 
 :Payment a rdfs:Class ;
   rdfs:isDefinedBy <> ;
   rdfs:label "Payment"@en ;
   rdfs:comment ""@en ;
   rdfs:subClassOf :Entity ;
-  :id "payment" .
+  :id "payment" ;
+  :icon "monetization_on" .
 
 :Person a rdfs:Class ;
   rdfs:isDefinedBy <> ;
   rdfs:label "Person"@en ;
   rdfs:comment ""@en ;
   rdfs:subClassOf :Entity, foaf:Person ;
-  :id "person" .
+  :id "person" ;
+  :icon "person" .
 
 :Place a rdfs:Class ;
   rdfs:isDefinedBy <> ;
   rdfs:label "Place"@en ;
   rdfs:comment ""@en ;
   rdfs:subClassOf :Entity ;
-  :id "place" .
+  :id "place" ;
+  :icon "place" .
 
 :Project a rdfs:Class ;
   rdfs:isDefinedBy <> ;
   rdfs:label "Project"@en ;
   rdfs:comment ""@en ;
   rdfs:subClassOf :Entity, doap:Project, foaf:Project ;
-  :id "project" .
+  :id "project" ;
+  :icon "date_range" .
 
+# TODO
 :Promise a rdfs:Class ;
   rdfs:isDefinedBy <> ;
   rdfs:label "Promise"@en ;
   rdfs:comment ""@en ;
   rdfs:subClassOf :Entity ;
-  :id "contract" .
+  :id "contract" ;
+  :icon "" .
 
+# TODO
 :Task a rdfs:Class ;
   rdfs:isDefinedBy <> ;
   rdfs:label "Task"@en ;
   rdfs:comment ""@en ;
   rdfs:subClassOf :Entity ;
-  :id "task" .
+  :id "task" ;
+  :icon "" .
 
 :Quote a rdfs:Class ;
   rdfs:isDefinedBy <> ;
   rdfs:label "Quote"@en ;
   rdfs:comment ""@en ;
   rdfs:subClassOf :Entity ;
-  :id "quote" .
+  :id "quote" ;
+  :icon "format_quote" .
 
 ################################################################################
 # Account subclasses
