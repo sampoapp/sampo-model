@@ -13,23 +13,26 @@ def rdf_prefixes
   }
 end
 
+def sampo
+  RDF::Vocabulary.new(BASE_URI)
+end
+
 def rdf
   require 'rdf'
   require 'rdf/ntriples'
-  require 'rdf/reasoner'
+  #require 'rdf/reasoner'
   require 'rdf/turtle'
   require 'rdf/xsd'
-  RDF::Reasoner.apply(:rdfs, :owl)
+  #RDF::Reasoner.apply(:rdfs, :owl)
   RDF::Graph.new do |graph|
     graph.load('rdf/classes.ttl')
     graph.load('rdf/properties.ttl')
-    graph.entail!
+    #graph.entail!
   end
 end
 
 def rdf_classes
   require 'rdf'
-  sampo = RDF::Vocabulary.new(BASE_URI)
   query = RDF::Query.new({
     :class => {
       RDF::RDFS.isDefinedBy => RDF::URI(BASE_URI),
@@ -42,7 +45,6 @@ end
 
 def rdf_subclasses
   require 'rdf'
-  sampo = RDF::Vocabulary.new(BASE_URI)
   query = RDF::Query.new({
     :class => {
       RDF::RDFS.isDefinedBy => RDF::URI(BASE_URI),
@@ -107,4 +109,63 @@ task 'list:props' do
   rdf_properties.sort.each do |row|
     puts row
   end
+end
+
+desc "Generate the Dart code for EntityClasses.top."
+task 'gen:classes:top' do
+  require 'rdf'
+  RDF::Query.execute(rdf, {
+    :class => {
+      RDF::RDFS.isDefinedBy => RDF::URI(BASE_URI),
+      RDF::RDFS.subClassOf => sampo.Entity,
+      sampo.id => :id,
+      sampo.icon => :icon,
+    },
+  })
+  .reject { |row| row.icon.to_s.empty? } # skip classes w/o icons
+  .sort { |row1, row2| row1.id <=> row2.id }.each do |row|
+    puts %Q<"#{row.id}",>
+  end
+end
+
+desc "Generate the Dart code for EntityClasses.all."
+task 'gen:classes:all' do
+  require 'rdf'
+  RDF::Query.execute(rdf, {
+    :class => {
+      RDF::RDFS.isDefinedBy => RDF::URI(BASE_URI),
+      RDF::RDFS.subClassOf => sampo.Entity,
+      sampo.id => :id,
+      sampo.icon => :icon,
+    },
+  })
+  .reject { |row| row.icon.to_s.empty? } # skip classes w/o icons
+  .sort { |row1, row2| row1.id <=> row2.id }.each do |row|
+    subclasses = RDF::Query.execute(rdf, {
+      :class => {
+        RDF::RDFS.isDefinedBy => RDF::URI(BASE_URI),
+        RDF::RDFS.subClassOf => row[:class],
+        sampo.id => :id,
+      },
+    }).map { |row| row.id.to_s }.sort
+
+    puts %Q<"#{row.id}": EntityClass("#{row.id}",>
+    puts %Q<  icon: Icons.#{row.icon},>
+    puts %Q<  superclass: null,>
+    if subclasses.empty?
+      puts %Q<  subclasses: <String>[],>
+    else
+      puts %Q<  subclasses: <String>[>
+      subclasses.each do |subclass|
+        puts %Q<    "#{subclass}",>
+      end
+      puts %Q<  ],>
+    end
+    puts %Q<),>
+  end
+end
+
+desc "Generate the SQLite schema."
+task 'gen:schema' do
+  # TODO
 end
