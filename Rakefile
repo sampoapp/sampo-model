@@ -33,41 +33,42 @@ end
 
 def rdf_classes
   require 'rdf'
-  query = RDF::Query.new({
+  result = RDF::Query.execute(rdf, {
     :class => {
+      RDF.type => RDF::RDFS.Class,
       RDF::RDFS.isDefinedBy => RDF::URI(BASE_URI),
       RDF::RDFS.subClassOf => sampo.Entity,
     },
   })
-  result = query.execute(rdf).map { |row| row[:class].relativize(BASE_URI).to_s }
-  result.sort.map(&:to_sym)
+  result.map { |row| row[:class].relativize(BASE_URI).to_s }.sort.map(&:to_sym)
 end
 
 def rdf_subclasses
   require 'rdf'
-  query = RDF::Query.new({
+  result = RDF::Query.execute(rdf, {
     :class => {
+      RDF.type => RDF::RDFS.Class,
       RDF::RDFS.isDefinedBy => RDF::URI(BASE_URI),
       RDF::RDFS.subClassOf => :superclass,
     },
     :superclass => {
+      RDF.type => RDF::RDFS.Class,
       RDF::RDFS.subClassOf => sampo.Entity,
     },
   })
-  result = query.execute(rdf).map { |row| row[:class].relativize(BASE_URI).to_s }
-  result.sort.map(&:to_sym)
+  result.map { |row| row[:class].relativize(BASE_URI).to_s }.sort.map(&:to_sym)
 end
 
 def rdf_properties
   require 'rdf'
-  query = RDF::Query.new({
+  result = RDF::Query.execute(rdf, {
     :property => {
+      RDF.type => RDF::RDFS.Class,
       RDF::RDFS.isDefinedBy => RDF::URI(BASE_URI),
       RDF.type => RDF.Property,
     },
   })
-  result = query.execute(rdf).map { |row| row[:property].relativize(BASE_URI).to_s }
-  result.sort.map(&:to_sym)
+  result.map { |row| row[:property].relativize(BASE_URI).to_s }.sort.map(&:to_sym)
 end
 
 desc "Dump the RDFS/OWL ontology in Turtle format"
@@ -116,6 +117,7 @@ task 'gen:classes:top' do
   require 'rdf'
   RDF::Query.execute(rdf, {
     :class => {
+      RDF.type => RDF::RDFS.Class,
       RDF::RDFS.isDefinedBy => RDF::URI(BASE_URI),
       RDF::RDFS.subClassOf => sampo.Entity,
       sampo.id => :id,
@@ -133,6 +135,7 @@ task 'gen:classes:all' do
   require 'rdf'
   RDF::Query.execute(rdf, {
     :class => {
+      RDF.type => RDF::RDFS.Class,
       RDF::RDFS.isDefinedBy => RDF::URI(BASE_URI),
       RDF::RDFS.subClassOf => sampo.Entity,
       sampo.id => :id,
@@ -143,6 +146,7 @@ task 'gen:classes:all' do
   .sort { |row1, row2| row1.id <=> row2.id }.each do |row|
     subclasses = RDF::Query.execute(rdf, {
       :class => {
+        RDF.type => RDF::RDFS.Class,
         RDF::RDFS.isDefinedBy => RDF::URI(BASE_URI),
         RDF::RDFS.subClassOf => row[:class],
         sampo.id => :id,
@@ -170,6 +174,7 @@ task 'gen:sqlite' do
   require 'rdf'
   RDF::Query.execute(rdf, {
     :class => {
+      RDF.type => RDF::RDFS.Class,
       RDF::RDFS.isDefinedBy => RDF::URI(BASE_URI),
       RDF::RDFS.subClassOf => sampo.Entity,
       sampo.id => :id,
@@ -180,6 +185,7 @@ task 'gen:sqlite' do
   .sort { |row1, row2| row1.id <=> row2.id }.each do |row|
     subclasses = RDF::Query.execute(rdf, {
       :class => {
+        RDF.type => RDF::RDFS.Class,
         RDF::RDFS.isDefinedBy => RDF::URI(BASE_URI),
         RDF::RDFS.subClassOf => row[:class],
         sampo.id => :id,
@@ -204,5 +210,22 @@ task 'gen:sqlite' do
         puts %Q<CREATE TABLE #{sub_table} (id INTEGER PRIMARY KEY NOT NULL);>
       end
     end
+  end
+end
+
+desc "Generate translation strings."
+task 'gen:strings' do
+  require 'rdf'
+  puts ["ID", "Type", "English"].join("\t")
+  RDF::Query.execute(rdf, {
+    :class => {
+      RDF.type => RDF::RDFS.Class,
+      RDF::RDFS.isDefinedBy => RDF::URI(BASE_URI),
+      RDF::RDFS.label => :label,
+      sampo.id => :id,
+    },
+  })
+  .sort { |row1, row2| row1.id <=> row2.id }.each do |row|
+    puts [row.id.to_s, "one", row.label.to_s].join("\t")
   end
 end
