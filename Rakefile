@@ -112,8 +112,40 @@ task 'list:props' do
   end
 end
 
+desc "Generate the Go code for sampo/schema/classes.go."
+task 'gen:go:classes' do
+  require 'rdf'
+  RDF::Query.execute(rdf, {
+    :class => {
+      RDF.type => RDF::RDFS.Class,
+      RDF::RDFS.isDefinedBy => RDF::URI(BASE_URI),
+      RDF::RDFS.subClassOf => sampo.Entity,
+      RDF::RDFS.comment => :comment,
+      sampo.id => :id,
+      sampo.icon => :icon,
+    },
+  })
+  .reject { |row| row.icon.to_s.empty? } # skip classes w/o icons
+  .sort { |row1, row2| row1.id <=> row2.id }.each do |row|
+    type = row[:class].relativize(BASE_URI).to_s
+    text = row.comment && !(row.comment.to_s.empty?) ? row.comment.to_s : "TODO"
+    puts <<~EOS
+
+      // #{text}
+      type #{type} struct {
+        Entity
+      }
+    EOS
+  end
+end
+
+desc "Generate the Go code for sampo/schema/queries.go."
+task 'gen:go:queries' do
+  # TODO
+end
+
 desc "Generate the Dart code for EntityClasses.top."
-task 'gen:classes:top' do
+task 'gen:dart:classes:top' do
   require 'rdf'
   RDF::Query.execute(rdf, {
     :class => {
@@ -131,7 +163,7 @@ task 'gen:classes:top' do
 end
 
 desc "Generate the Dart code for EntityClasses.all."
-task 'gen:classes:all' do
+task 'gen:dart:classes:all' do
   require 'rdf'
   RDF::Query.execute(rdf, {
     :class => {
